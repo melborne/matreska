@@ -1,6 +1,6 @@
 # Matreska
 
-Matreska is for building adaptable multi-filter. It's inspired by Rack.
+Matreska is for building adaptable multi-filter, which is inspired by Rack.
 
 ## Installation
 
@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-See example.
+    mat = Matreska.build(1)
+    Matreska.doll(:Plus) { |base, arg| base.map { |i| i + arg } }
+    Matreska.doll(:Multi) { |base, arg| base.map { |i| i * arg } }
+    mat.set Plus, 3
+    mat.set Multi, 2
+
+    mat.call #=> 8
 
 ## Contributing
 

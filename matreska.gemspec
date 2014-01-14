@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Matreska::VERSION
   spec.authors       = ["kyoendo"]
   spec.email         = ["postagie@gmail.com"]
-  spec.summary       = %q{Matreska is for building adaptable multi-filter. It's inspired by Rack.}
+  spec.summary       = %q{Matreska is for building adaptable multi-filter, which is inspired by Rack.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
