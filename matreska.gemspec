@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'matryoshka/version'
+require 'matreska/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "matryoshka"
-  spec.version       = Matryoshka::VERSION
+  spec.name          = "matreska"
+  spec.version       = Matreska::VERSION
   spec.authors       = ["kyoendo"]
   spec.email         = ["postagie@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}

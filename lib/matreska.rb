@@ -1,6 +1,6 @@
-require "matryoshka/version"
+require "matreska/version"
 
-module Matryoshka
+module Matreska
   class Builder
     attr_reader :dolls
     def initialize(core)
@@ -62,4 +62,4 @@ module Matryoshka
   end
 end
 
-M8a = Matryoshka
+M8a = Matreska

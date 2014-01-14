@@ -28,16 +28,16 @@ class Plus
   end
 end
 
-describe Matryoshka do
+describe Matreska do
   it 'should have a version number' do
-    Matryoshka::VERSION.should_not be_nil
+    Matreska::VERSION.should_not be_nil
   end
 end
 
-describe Matryoshka::Builder do
+describe Matreska::Builder do
   before do
     @core = ->env{ env }
-    @ma = Matryoshka::Builder.new(@core)
+    @ma = Matreska::Builder.new(@core)
   end
 
   describe "#new" do
@@ -88,13 +88,13 @@ describe Matryoshka::Builder do
   describe ".doll" do
     context 'with a method' do
       it 'creates doll class which execute the method' do
-        Matryoshka.doll(:Rev, :reverse)
+        Matreska.doll(:Rev, :reverse)
         @ma.set Rev
         expect(@ma.call("olleh")).to eq "hello"
       end
 
       it 'creates doll class which execute the method with an argument' do
-        Matryoshka.doll(:MulByTwo, :*, 2)
+        Matreska.doll(:MulByTwo, :*, 2)
         @ma.set MulByTwo
         expect(@ma.call(3)).to eq 6
       end
@@ -102,7 +102,7 @@ describe Matryoshka::Builder do
 
     context 'with a block' do
       it 'creates doll class which execute the block' do
-        Matryoshka.doll(:RevUp) { |core| core.reverse.upcase }
+        Matreska.doll(:RevUp) { |core| core.reverse.upcase }
         @ma.set RevUp
         expect(@ma.call("olleh")).to eq "HELLO"
       end
@@ -111,7 +111,7 @@ describe Matryoshka::Builder do
 
   describe ".build" do
     it 'calls Builder.new' do
-      expect(Matryoshka.build(->env{ env })).to be_instance_of Matryoshka::Builder
+      expect(Matreska.build(->env{ env })).to be_instance_of Matreska::Builder
     end
   end
 end
