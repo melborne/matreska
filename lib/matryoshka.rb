@@ -19,44 +19,47 @@ module Matryoshka
     alias :[] :call
 
     def build
-      @dolls.inject(@core) { |core, doll| doll.call(core) }
+      @dolls.inject(@core) { |core, doll| doll[core] }
     end
     private :build
 
     def clear
       @figures.clear
     end
+  end
 
-    class << self
-      def figure(name, *meth, &blk)
-        if blk
-          _figure(name, &blk)
-        else
-          _figure(name) do |res, env|
-            res.send(*meth).tap { |r| p r }
-          end
+  class << self
+    def build(core)
+      Builder.new(core)
+    end
+
+    def doll(name, *meth, &blk)
+      if blk
+        build_doll(name, &blk)
+      else
+        build_doll(name) do |core|
+          core.send(*meth)
         end
       end
-      alias :doll :figure
+    end
+    alias :figure :doll
 
-      private
-      def _figure(name, &blk)
-        klass = Class.new do
-          def initialize(core)
-            @core = core
-          end
-  
-          define_method(:call) do |env|
-            res = @core[env]
-            blk[res, env]
-          end
-          alias :[] :call
+    private
+    def build_doll(name, &blk)
+      klass = Class.new do
+        def initialize(core)
+          @core = core
         end
-        Object.const_set(name.to_s, klass)
+
+        define_method(:call) do |env|
+          core = @core.call(env)
+          blk.call(core)
+        end
+        alias :[] :call
       end
+      Object.const_set(name.to_s, klass)
     end
   end
 end
 
 M8a = Matryoshka
-
