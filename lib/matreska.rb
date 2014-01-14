@@ -47,13 +47,15 @@ module Matreska
     private
     def build_doll(name, &blk)
       klass = Class.new do
-        def initialize(core)
+        def initialize(core, *args, &blk)
           @core = core
+          @args = args
+          @blk = blk
         end
 
         define_method(:call) do |env|
           core = @core.call(env)
-          blk.call(core)
+          blk.call(core, *@args, &@blk)
         end
         alias :[] :call
       end

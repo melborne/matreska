@@ -109,10 +109,16 @@ describe Matreska::Builder do
     end
 
     context 'with a block' do
-      it 'creates doll class which execute the block' do
+      it 'creates a doll class which execute the block' do
         Matreska.doll(:RevUp) { |core| core.reverse.upcase }
         @ma.set RevUp
         expect(@ma.call("olleh")).to eq "HELLO"
+      end
+
+      it 'creates a doll class with arguments' do
+        Matreska.doll(:Plus) { |core, operand, &blk| core + operand }
+        @ma.set Plus, 4
+        expect(@ma.call(1)).to eq 5
       end
     end
   end
