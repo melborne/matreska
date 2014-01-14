@@ -19,8 +19,8 @@ Or install it yourself as:
 ## Usage
 
     mat = Matreska.build(1)
-    Matreska.doll(:Plus) { |base, arg| base.map { |i| i + arg } }
-    Matreska.doll(:Multi) { |base, arg| base.map { |i| i * arg } }
+    Matreska.doll(:Plus) { |base, arg| base + arg }
+    Matreska.doll(:Multi) { |base, arg| base * arg }
     mat.set Plus, 3
     mat.set Multi, 2
 
