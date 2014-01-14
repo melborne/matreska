@@ -1,6 +1,6 @@
 # Matreska
 
-TODO: Write a gem description
+Matreska builds a cascaded object in which each object can be called in order. 'Rack' inspired creating Matreska.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+See example.
 
 ## Contributing
 

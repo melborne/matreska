@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Matreska::VERSION
   spec.authors       = ["kyoendo"]
   spec.email         = ["postagie@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Matreska builds a cascaded object in which each object can be called in order. 'Rack' inspired creating Matreska.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
