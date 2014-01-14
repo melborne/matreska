@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["kyoendo"]
   spec.email         = ["postagie@gmail.com"]
   spec.summary       = %q{Matreska is for building adaptable multi-filter, which is inspired by Rack.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/melborne/matreska"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
