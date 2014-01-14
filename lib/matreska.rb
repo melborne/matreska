@@ -5,7 +5,7 @@ module Matreska
     attr_reader :dolls
     def initialize(core)
       @dolls = []
-      @core = core
+      @core = core.respond_to?(:call) ? core : ->env{ core }
     end
 
     def set(doll, *args, &blk)
@@ -19,7 +19,7 @@ module Matreska
     alias :[] :call
 
     def build
-      @dolls.inject(@core) { |core, doll| doll[core] }
+      @dolls.inject(@core) { |core, doll| doll.call(core) }
     end
     private :build
 

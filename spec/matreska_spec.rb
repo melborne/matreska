@@ -42,7 +42,15 @@ describe Matreska::Builder do
 
   describe "#new" do
     it 'takes a core object which has call method' do
-      expect(@ma.instance_variable_get "@core").to eq @core
+      core = @ma.instance_variable_get("@core")
+      expect(core.respond_to? :call).to be true
+    end
+
+    context 'when passed object has not call method' do
+      it 'builds a proc object which wrap self' do
+        ma = Matreska::Builder.new(1)
+        expect(ma.call).to eq 1
+      end
     end
   end
 
