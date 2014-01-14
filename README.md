@@ -1,6 +1,6 @@
 # Matreska
 
-Matreska builds a cascaded object in which each object can be called in order. 'Rack' inspired creating Matreska.
+Matreska is for building adaptable multi-filter. It's inspired by Rack.
 
 ## Installation
 
