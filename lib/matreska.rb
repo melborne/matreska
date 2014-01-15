@@ -64,4 +64,4 @@ module Matreska
   end
 end
 
-M8a = Matreska
+M6a = Matreska
