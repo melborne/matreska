@@ -24,7 +24,7 @@ module Matreska
     private :build
 
     def clear
-      @figures.clear
+      @dolls.clear
     end
   end
 
